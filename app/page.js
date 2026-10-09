@@ -1,4 +1,4 @@
-// import LoginForm from "@/components/forms/LoginForm";
+import LoginForm from "@/components/forms/LoginForm";
 import AuthItem from "@/components/sections/AuthItems";
 import PageBorders from "@/components/wrappers/PageBorders";
 
@@ -11,7 +11,10 @@ export default function Home() {
     <div className="min-h-screen">
       <PageBorders>
         {" "}
-        <AuthItem>Login {/* <LoginForm /> */}</AuthItem>
+        <AuthItem>
+          {" "}
+          <LoginForm />
+        </AuthItem>
       </PageBorders>{" "}
     </div>
   );
