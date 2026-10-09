@@ -1,17 +1,17 @@
-// import LoginForm from "@/components/forms/LoginForm";
+// import SignUpForm from "@/components/forms/SignUpForm";
 import AuthItem from "@/components/sections/AuthItems";
 import PageBorders from "@/components/wrappers/PageBorders";
 
 export const metadata = {
-  title: "Zanzelle Login",
-  description: "Login to Zanzelle",
+  title: "Zanzelle Sign-Up",
+  description: "Sign-Up to Zanzelle",
 };
-export default function Home() {
+export default function SingUp() {
   return (
     <div className="min-h-screen">
       <PageBorders>
         {" "}
-        <AuthItem>Login {/* <LoginForm /> */}</AuthItem>
+        <AuthItem>Sign-up {/* <SignUpForm /> */}</AuthItem>
       </PageBorders>{" "}
     </div>
   );

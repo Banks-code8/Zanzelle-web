@@ -1,17 +1,16 @@
-// import LoginForm from "@/components/forms/LoginForm";
 import AuthItem from "@/components/sections/AuthItems";
 import PageBorders from "@/components/wrappers/PageBorders";
 
 export const metadata = {
-  title: "Zanzelle Login",
-  description: "Login to Zanzelle",
+  title: "Zanzelle Forget-Password",
+  description: "Forget Zanzelle Password",
 };
-export default function Home() {
+export default function ForgetPassword() {
   return (
     <div className="min-h-screen">
       <PageBorders>
         {" "}
-        <AuthItem>Login {/* <LoginForm /> */}</AuthItem>
+        <AuthItem>Forget-Password </AuthItem>
       </PageBorders>{" "}
     </div>
   );
