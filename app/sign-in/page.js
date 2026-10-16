@@ -1,4 +1,4 @@
-// import SignUpForm from "@/components/forms/SignUpForm";
+import SignUpForm from "@/components/forms/SignUpForm";
 import AuthItem from "@/components/sections/AuthItems";
 import PageBorders from "@/components/wrappers/PageBorders";
 
@@ -11,7 +11,10 @@ export default function SingUp() {
     <div className="min-h-screen">
       <PageBorders>
         {" "}
-        <AuthItem>Sign-up {/* <SignUpForm /> */}</AuthItem>
+        <AuthItem>
+          {" "}
+          <SignUpForm />{" "}
+        </AuthItem>
       </PageBorders>{" "}
     </div>
   );

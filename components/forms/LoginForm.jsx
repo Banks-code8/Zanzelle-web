@@ -42,7 +42,7 @@ const LoginForm = () => {
       if (res.user?.role === "admin") {
         router.push("/dashboard");
       } else {
-        router.push("/");
+        router.push("/dashboard");
       }
     } catch (error) {
       console.error(error);
@@ -57,7 +57,7 @@ const LoginForm = () => {
   return (
     <div className="flex items-center justify-center w-full p-6">
       <div className="w-full space-y-5 ">
-        <div className="flex justify-center">
+        <div className="flex justify-start">
           <TitleText text="Welcome back" />
         </div>
 
@@ -73,7 +73,7 @@ const LoginForm = () => {
               className="p-3 w-full rounded-[10px] text-secondary-light bg-secondary"
             />
             {errors.email && (
-              <p className="text-xs text-red-500">{errors.email.message}</p>
+              <p className="text-xs text-primary">{errors.email.message}</p>
             )}
           </div>
 
@@ -98,13 +98,16 @@ const LoginForm = () => {
                 {showPassword ? "🙈" : "👁️"}
               </button>
             </div>
-            <div className="w-full grid justify-items-end">
+            <Link
+              href={"/forget-password"}
+              className="w-full grid justify-items-end cursor-pointer"
+            >
               <MainText text={"Forgot password"} color={"text-primary"} />
-            </div>
+            </Link>
           </div>
 
           {errors.password && (
-            <p className="text-xs text-red-500">{errors.password.message}</p>
+            <p className="text-xs text-primary">{errors.password.message}</p>
           )}
 
           <button
@@ -131,12 +134,13 @@ const LoginForm = () => {
             Apple
           </button>
 
-          <Link href="/sign-up">
-            <div className="flex flex-wrap w-full justify-center gap-1">
-              <MainText text={"Dont't have an account? "} />
+          <div className="flex flex-wrap w-full justify-center gap-1">
+            <MainText text={"Dont't have an account? "} />
+            <Link href="/sign-in">
+              {" "}
               <MainText text={"Create Account"} color={"text-primary"} />
-            </div>
-          </Link>
+            </Link>{" "}
+          </div>
         </form>
       </div>
     </div>

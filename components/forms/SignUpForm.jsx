@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import TitleText from "../typography/TitleText";
 import { registerUser } from "@/services/apiService/authService";
 import Link from "next/link";
+import MainText from "../typography/MainText";
 
 const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -41,7 +42,7 @@ const SignUpForm = () => {
       toast.success("Account created successfully");
 
       reset();
-      window.location.href = "/login";
+      window.location.href = "/email-verification";
     } catch (err) {
       console.error("Unexpected error:", err);
       toast.error("Something went wrong");
@@ -53,11 +54,10 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center rounded-[10px] bg-black/10 p-6">
-      <div className="flex w-full max-w-md flex-col justify-center gap-4 rounded-[10px] bg-white p-5 md:gap-8">
-        <div className="flex w-full justify-center">
-          {" "}
-          <TitleText text="Create Account" bold />
+    <div className="flex items-center justify-center w-full p-6">
+      <div className="w-full space-y-5 ">
+        <div className="flex justify-start">
+          <TitleText text="Sign-in  to Zanzelle" />
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -65,13 +65,13 @@ const SignUpForm = () => {
           <div>
             <input
               placeholder="Full Name"
-              className="w-full rounded-[10px] border-mainGray/50 placeholder:text-mainGray focus:border focus:border-primary"
+              className="p-3 w-full rounded-[10px] text-secondary-light bg-secondary"
               {...register("fullName", {
                 required: "Full name required",
               })}
             />
             {errors.fullName && (
-              <p className="text-xs text-red-400">{errors.fullName.message}</p>
+              <p className="text-xs text-primary">{errors.fullName.message}</p>
             )}
           </div>
 
@@ -79,7 +79,7 @@ const SignUpForm = () => {
           <div>
             <input
               placeholder="Email"
-              className="w-full rounded-[10px] border-mainGray/50 placeholder:text-mainGray focus:border focus:border-primary"
+              className="p-3 w-full rounded-[10px] text-secondary-light bg-secondary"
               {...register("email", {
                 required: "Email required",
                 pattern: {
@@ -89,7 +89,7 @@ const SignUpForm = () => {
               })}
             />
             {errors.email && (
-              <p className="text-xs text-red-400">{errors.email.message}</p>
+              <p className="text-xs text-primary">{errors.email.message}</p>
             )}
           </div>
 
@@ -98,7 +98,7 @@ const SignUpForm = () => {
             <input
               type={showPassword ? "text" : "password"}
               placeholder="Password"
-              className="w-full rounded-[10px] border-mainGray/50 placeholder:text-mainGray focus:border focus:border-primary"
+              className="p-3 w-full rounded-[10px] text-secondary-light bg-secondary"
               {...register("password", {
                 required: "Password required",
                 minLength: {
@@ -107,7 +107,6 @@ const SignUpForm = () => {
                 },
               })}
             />
-
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
@@ -115,38 +114,47 @@ const SignUpForm = () => {
             >
               {showPassword ? "🙈" : "👁️"}
             </button>
-
             {errors.password && (
-              <p className="text-xs text-red-400">{errors.password.message}</p>
-            )}
+              <p className="text-xs text-primary">{errors.password.message}</p>
+            )}{" "}
           </div>
 
           {/* Submit */}
           <button
+            type="submit"
             disabled={!isValid || isSubmitting}
-            className="w-full rounded-[10px] border bg-primary py-[10px] text-white"
+            className="w-full rounded-[10px] border-none outline-none text-secondary bg-secondary/40 py-[10px] "
           >
-            {isSubmitting ? "Creating..." : "Sign up"}
+            {isSubmitting ? "Creating Account..." : "Create Account"}
           </button>
 
           {/* OR divider */}
-          <div className="text-center text-xs text-gray-400">OR</div>
+          <div className="text-center text-xs text-main-white">OR</div>
 
           {/* GOOGLE */}
           <button
             type="button"
             onClick={handleGoogleAuth}
-            className="w-full rounded-[10px] bg-red-500 py-[10px] text-white"
+            className="w-full rounded-[10px] border-none outline-none text-secondary bg-secondary/40 py-[10px] "
           >
-            Continue with Google
+            Google
           </button>
-
+          <button
+            type="button"
+            onClick={handleGoogleAuth}
+            className="w-full rounded-[10px] border-none outline-none text-secondary bg-secondary/40 py-[10px] "
+          >
+            Apple
+          </button>
           {/* LOGIN */}
-          <Link href="/login">
-            <p className="mt-4 cursor-pointer text-center text-xs text-gray-400 underline hover:text-primary">
-              Already have an account
-            </p>
-          </Link>
+
+          <div className="flex flex-wrap w-full justify-center gap-1">
+            <MainText text={"Already have an account? "} />
+            <Link href="/">
+              {" "}
+              <MainText text={"Login"} color={"text-primary"} />
+            </Link>{" "}
+          </div>
         </form>
       </div>
     </div>

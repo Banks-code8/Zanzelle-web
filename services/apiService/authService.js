@@ -1,4 +1,4 @@
-import { postData, getData } from "../hooks/apiHelper.js";
+import { postData, getData } from "./apiHelper.js";
 
 export const registerUser = (data) => postData("/auth/register", data);
 

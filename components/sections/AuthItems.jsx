@@ -27,8 +27,8 @@ const AuthItem = ({ children }) => {
           </div>
         </div>
         {/* grid 2 */}
-        <div className="col-span-1 ">
-          <div className="flex justify-center">{children}</div>
+        <div className="col-span-1  min-h-0">
+          <div className="flex justify-center min-h-0">{children}</div>
         </div>
       </div>
     </div>
