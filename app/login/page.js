@@ -1,17 +1,20 @@
+import LoginForm from "@/components/forms/LoginForm";
 import AuthItem from "@/components/sections/AuthItems";
-import DashboardItem from "@/components/sections/DashboardItem";
 import PageBorders from "@/components/wrappers/PageBorders";
 
 export const metadata = {
-  title: "Zanzelle daashboard",
-  description: "Make transaction with Zanzelle",
+  title: "Zanzelle Login",
+  description: "Login to Zanzelle",
 };
-export default function Dashboard() {
+export default function Login() {
   return (
     <div className="min-h-screen">
       <PageBorders>
         {" "}
-        <DashboardItem />
+        <AuthItem>
+          {" "}
+          <LoginForm />
+        </AuthItem>
       </PageBorders>{" "}
     </div>
   );

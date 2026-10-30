@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
 
-const MainButton = ({ bgColor, text, textColor }) => {
+const MainButton = ({ bgColor, icon, text, textColor }) => {
   return (
     <button
-      className={`${bgColor ? bgColor : 'border border-primary bg-mainWhite'} ${textColor ? textColor : 'text-mainBlack'} cursor-pointer rounded-[10px] px-[20px] py-[10px] text-[14px] font-semibold shadow-custom-primary transition-all duration-300 hover:scale-105 active:scale-95`}
+      className={`${bgColor ? bgColor : " bg-main-black"} ${textColor ? textColor : "text-main-white"} group transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer rounded-[10px] px-5 py-3 text-[14px] font-semibold shadow-custom-primary `}
     >
-      {text}
+      <span className="flex justify-center items-center gap-2  group-hover:font-bold">
+        {icon} {text}
+      </span>
     </button>
   );
 };
