@@ -1,21 +1,24 @@
+import React, { Suspense } from "react";
 import VerificationForm from "@/components/forms/VerificationForm";
 import AuthItem from "@/components/sections/AuthItems";
 import PageBorders from "@/components/wrappers/PageBorders";
 
-export const metadata = {
-  title: "Zanzelle Login",
-  description: "Login to Zanzelle",
-};
-export default function EmailVerification() {
+const EmailVerification = () => {
   return (
-    <div className="min-h-screen">
-      <PageBorders>
-        {" "}
-        <AuthItem>
-          {" "}
-          <VerificationForm />{" "}
-        </AuthItem>
-      </PageBorders>{" "}
-    </div>
+    <PageBorders>
+      <AuthItem>
+        <Suspense
+          fallback={
+            <div className="flex min-h-[300px] items-center justify-center">
+              <p className="text-main-white">Loading verification...</p>
+            </div>
+          }
+        >
+          <VerificationForm />
+        </Suspense>
+      </AuthItem>
+    </PageBorders>
   );
-}
+};
+
+export default EmailVerification;
