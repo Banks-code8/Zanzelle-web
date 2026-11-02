@@ -102,7 +102,8 @@ const VerificationForm = () => {
       setIsResending(false);
     }
   };
-
+  console.log("Verification email:", email);
+  console.log("Current URL:", window.location.href);
   return (
     <div className="flex w-full items-center justify-center p-6">
       <div className="w-full space-y-5">
