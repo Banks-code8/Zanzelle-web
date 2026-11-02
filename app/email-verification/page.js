@@ -3,6 +3,10 @@ import VerificationForm from "@/components/forms/VerificationForm";
 import AuthItem from "@/components/sections/AuthItems";
 import PageBorders from "@/components/wrappers/PageBorders";
 
+export const metadata = {
+  title: "Zanzelle email verification",
+  description: "Welcome to Zanzelle",
+};
 const EmailVerification = () => {
   return (
     <PageBorders>
